@@ -45,7 +45,7 @@ def handle_error(request, status=404, **kwargs):
     # For errors to /api/*, use a simple DRF view/exception to generate a
     # browsable error page for browser clients or a simple JSON response for any
     # other clients.
-    if request.path.startswith('/api/'):
+    if request.path_info.startswith('/api/'):
 
         class APIException(exceptions.APIException):
             status_code = status
